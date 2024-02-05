@@ -21,7 +21,7 @@ export function CookieConsent() {
         analytics_storage: newValue,
       })
     }
-  }, [])
+  })
 
   function acceptConsent() {
     setShowConsent(false)
