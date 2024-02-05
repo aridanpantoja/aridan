@@ -16,10 +16,12 @@ export function CookieConsent() {
   useEffect(() => {
     const newValue = hasCookie('consent') ? 'granted' : 'denied'
 
-    window.gtag('consent', 'update', {
-      analytics_storage: newValue,
-    })
-  })
+    if (typeof window !== 'undefined') {
+      window.gtag('consent', 'update', {
+        analytics_storage: newValue,
+      })
+    }
+  }, [])
 
   function acceptConsent() {
     setShowConsent(false)
