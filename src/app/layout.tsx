@@ -25,10 +25,6 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="pt-BR">
-      <Suspense>
-        <Analytics GA_MEASUREMENT_ID="G-JC1MXC2ZWY" />
-      </Suspense>
-
       <body
         className={cn('relative h-full antialiased', plusJakartaSans.className)}
       >
@@ -42,7 +38,11 @@ export default function RootLayout({
             <div className="flex-1 flex-grow">{children}</div>
             <Footer />
             <ScrollToTopButton />
-            <CookieConsent />
+
+            <Suspense>
+              <Analytics GA_MEASUREMENT_ID="G-JC1MXC2ZWY" />
+              <CookieConsent />
+            </Suspense>
           </main>
         </ThemeProvider>
       </body>
