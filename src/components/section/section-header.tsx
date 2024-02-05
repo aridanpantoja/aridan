@@ -30,7 +30,7 @@ export function SectionHeader({
         <h2 className="text-3xl font-bold tracking-tight text-accent-foreground sm:text-4xl">
           {sectionTitle}
         </h2>
-        <Link className={buttonVariants({ variant: 'link' })} href={linkHref}>
+        <Link className={buttonVariants({ variant: 'link' })} href={linkHref!}>
           {linkLabel} &rarr;
         </Link>
       </div>
