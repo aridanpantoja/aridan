@@ -6,6 +6,8 @@ import { cn } from '@/lib/utils'
 import type { Metadata } from 'next'
 import { Plus_Jakarta_Sans } from 'next/font/google'
 import './globals.css'
+import { CookieConsent } from '@/components/analytics/cookie-consent'
+import Analytics from '@/components/analytics/analytics'
 
 const plusJakartaSans = Plus_Jakarta_Sans({ subsets: ['latin'] })
 
@@ -22,6 +24,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="pt-BR">
+      <Analytics GA_MEASUREMENT_ID="G-JC1MXC2ZWY" />
       <body
         className={cn('relative h-full antialiased', plusJakartaSans.className)}
       >
@@ -35,6 +38,7 @@ export default function RootLayout({
             <div className="flex-1 flex-grow">{children}</div>
             <Footer />
             <ScrollToTopButton />
+            <CookieConsent />
           </main>
         </ThemeProvider>
       </body>

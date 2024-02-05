@@ -30,7 +30,7 @@ export function ScrollToTopButton() {
       <Button
         onClick={() => scrollToTop()}
         size="icon"
-        className="fixed bottom-5 right-5 z-50"
+        className="fixed bottom-5 right-5 z-10"
       >
         <FaArrowUp />
       </Button>
