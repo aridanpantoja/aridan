@@ -8,24 +8,20 @@ export function CookieConsent() {
   const [showConsent, setShowConsent] = useState(false)
 
   useEffect(() => {
+    // If no consent cookie is present, show the consent popup
     if (!hasCookie('consent')) {
       setShowConsent(true)
     }
   }, [])
 
-  useEffect(() => {
-    const newValue = hasCookie('consent') ? 'granted' : 'denied'
-
-    if (typeof window !== 'undefined') {
-      window.gtag('consent', 'update', {
-        analytics_storage: newValue,
-      })
-    }
-  })
-
   function acceptConsent() {
     setShowConsent(false)
     setCookie('consent', 'true')
+
+    // Trigger GTM script load
+    if (typeof window !== 'undefined') {
+      window.dispatchEvent(new Event('updateGTMConsent'))
+    }
   }
 
   function declineConsent() {

@@ -41,7 +41,7 @@ export default function RootLayout({
             <CookieConsent />
 
             <Suspense>
-              <Analytics GA_MEASUREMENT_ID="G-JC1MXC2ZWY" />
+              <Analytics />
             </Suspense>
           </main>
         </ThemeProvider>
