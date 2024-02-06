@@ -1,3 +1,5 @@
+import GoogleAnalytics from '@/components/analytics/analytics'
+import { CookieConsent } from '@/components/analytics/cookie-consent'
 import Footer from '@/components/footer'
 import NavBar from '@/components/navbar/nav-bar'
 import { ScrollToTopButton } from '@/components/scroll-to-top'
@@ -5,11 +7,8 @@ import { ThemeProvider } from '@/components/theme/theme-provider'
 import { cn } from '@/lib/utils'
 import type { Metadata } from 'next'
 import { Plus_Jakarta_Sans } from 'next/font/google'
-import './globals.css'
-import { CookieConsent } from '@/components/analytics/cookie-consent'
-import Analytics from '@/components/analytics/analytics'
 import { Suspense } from 'react'
-import GoogleAnalytics from '@/components/analytics/analytics'
+import './globals.css'
 
 const plusJakartaSans = Plus_Jakarta_Sans({ subsets: ['latin'] })
 
