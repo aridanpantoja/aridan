@@ -24,7 +24,6 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="pt-BR">
-      <Analytics />
       <body
         className={cn('relative h-full antialiased', plusJakartaSans.className)}
       >
@@ -39,6 +38,7 @@ export default function RootLayout({
             <Footer />
             <ScrollToTopButton />
             <CookieConsent />
+            <Analytics />
           </main>
         </ThemeProvider>
       </body>
