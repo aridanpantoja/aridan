@@ -29,7 +29,7 @@ export function CookieConsent() {
   return (
     <div
       className={cn(
-        'fixed bottom-0 z-30 m-4 w-full rounded-sm border bg-background p-6 shadow sm:max-w-96',
+        'fixed bottom-0 z-30 m-4 w-auto rounded-sm border bg-background p-6 shadow sm:max-w-96',
         cookieConsent != null ? 'hidden' : 'block',
       )}
     >
