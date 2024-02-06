@@ -3,6 +3,7 @@
 import { getLocalStorage, setLocalStorage } from '@/lib/storage-helper'
 import { useEffect, useState } from 'react'
 import { Button } from '../ui/button'
+import { cn } from '@/lib/utils'
 
 export function CookieConsent() {
   const [cookieConsent, setCookieConsent] = useState(false)
@@ -26,19 +27,22 @@ export function CookieConsent() {
   }, [cookieConsent])
 
   return (
-    <div className={`${cookieConsent != null ? 'hidden' : 'flex'}`}>
-      <div className="fixed bottom-0 z-30 m-4 w-full rounded-sm border bg-background p-6 shadow sm:max-w-96">
-        <div className="flex flex-col items-center justify-center gap-4 text-center sm:text-start">
-          <p>
-            Utilizamos cookies para melhorar sua experiência de navegação. Ao
-            aceitar, você concorda com nosso uso de cookies.
-          </p>
-          <div className="flex w-full justify-center gap-4 sm:justify-start">
-            <Button variant="secondary" onClick={() => setCookieConsent(false)}>
-              Recusar
-            </Button>
-            <Button onClick={() => setCookieConsent(true)}>Aceitar</Button>
-          </div>
+    <div
+      className={cn(
+        'fixed bottom-0 z-30 m-4 w-full rounded-sm border bg-background p-6 shadow sm:max-w-96',
+        cookieConsent != null ? 'hidden' : 'block',
+      )}
+    >
+      <div className="flex flex-col items-center justify-center gap-4 text-center sm:text-start">
+        <p>
+          Utilizamos cookies para melhorar sua experiência de navegação. Ao
+          aceitar, você concorda com nosso uso de cookies.
+        </p>
+        <div className="flex w-full justify-center gap-4 sm:justify-start">
+          <Button variant="secondary" onClick={() => setCookieConsent(false)}>
+            Recusar
+          </Button>
+          <Button onClick={() => setCookieConsent(true)}>Aceitar</Button>
         </div>
       </div>
     </div>
