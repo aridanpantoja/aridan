@@ -13,4 +13,7 @@ export interface ProjectProps {
   thumbnail: {
     url: string
   }
+  pages: {
+    url: string
+  }[]
 }

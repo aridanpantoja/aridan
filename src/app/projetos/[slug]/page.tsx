@@ -1,8 +1,10 @@
 import { IconHygraph } from '@/components/icon-hygraph'
 import { Section } from '@/components/section/section'
+import { SectionHeader } from '@/components/section/section-header'
 import { Badge } from '@/components/ui/badge'
 import { Button } from '@/components/ui/button'
 import { getProject } from '@/queries/project'
+import Image from 'next/image'
 import Link from 'next/link'
 import { notFound } from 'next/navigation'
 import { CiGlobe } from 'react-icons/ci'
@@ -65,7 +67,25 @@ export default async function ProjetoPage({
       </Section>
 
       <Section background="gray">
-        <div>oi</div>
+        <SectionHeader
+          sectionTitle="Páginas & Seções"
+          description="Veja as principais áreas desenvolvidas durante o projeto"
+        />
+        <div className="mt-8 grid w-full grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
+          {project.pages.map((item, i) => (
+            <div className="overflow-hidden rounded-lg border-2" key={i}>
+              <Image
+                src={item.url}
+                alt={`Página do site ${project.title}`}
+                width={640}
+                height={368}
+                blurDataURL="data:..."
+                placeholder="blur"
+                priority
+              />
+            </div>
+          ))}
+        </div>
       </Section>
     </>
   )

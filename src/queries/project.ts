@@ -17,6 +17,9 @@ const query = (slug: string) => {
       description
       deployHref
       githubHref
+      pages {
+        url
+      }
     }
   }  
   `

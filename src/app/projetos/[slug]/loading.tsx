@@ -1,5 +1,6 @@
 import { ProjectLoading } from '@/components/project/project-loading'
 import { Section } from '@/components/section/section'
+import { SectionHeader } from '@/components/section/section-header'
 import { Skeleton } from '@/components/ui/skeleton'
 
 export default function ProjectLoadingPage() {
@@ -17,7 +18,11 @@ export default function ProjectLoadingPage() {
       </Section>
 
       <Section background="gray">
-        <ProjectLoading columns="three" />
+        <SectionHeader
+          sectionTitle="Páginas & Seções"
+          description="Veja as principais áreas desenvolvidas durante o projeto"
+        />
+        <ProjectLoading columns="three" className="mt-8" />
       </Section>
     </>
   )
