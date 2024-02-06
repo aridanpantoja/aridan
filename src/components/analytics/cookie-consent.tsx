@@ -1,49 +1,49 @@
 'use client'
 
-import { setCookie, hasCookie } from 'cookies-next'
+import { getLocalStorage, setLocalStorage } from '@/lib/storage-helper'
 import { useState, useEffect } from 'react'
 import { Button } from '../ui/button'
+import { cn } from '@/lib/utils'
 
 export function CookieConsent() {
-  const [showConsent, setShowConsent] = useState(false)
+  const [cookieConsent, setCookieConsent] = useState(false)
 
   useEffect(() => {
-    // If no consent cookie is present, show the consent popup
-    if (!hasCookie('consent')) {
-      setShowConsent(true)
-    }
-  }, [])
+    const storedCookieConsent = getLocalStorage('cookie_consent', null)
 
-  function acceptConsent() {
-    setShowConsent(false)
-    setCookie('consent', 'true')
+    setCookieConsent(storedCookieConsent)
+  }, [setCookieConsent])
 
-    // Trigger GTM script load
-    if (typeof window !== 'undefined') {
-      window.dispatchEvent(new Event('updateGTMConsent'))
-    }
-  }
+  useEffect(() => {
+    const newValue = cookieConsent ? 'granted' : 'denied'
 
-  function declineConsent() {
-    setShowConsent(false)
-  }
+    window.gtag('consent', 'update', {
+      analytics_storage: newValue,
+    })
 
-  if (!showConsent) {
-    return null
-  }
+    setLocalStorage('cookie_consent', cookieConsent)
+
+    // For Testing
+    console.log('Cookie Consent: ', cookieConsent)
+  }, [cookieConsent])
 
   return (
-    <div className="w-ful fixed bottom-0  z-30 m-4 rounded-sm border bg-background p-6 shadow sm:max-w-96">
+    <div
+      className={cn(
+        'fixed  bottom-0 z-30  m-4 w-full rounded-sm border bg-background p-6 shadow sm:max-w-96',
+        cookieConsent !== !null ? 'block' : 'hidden',
+      )}
+    >
       <div className="flex flex-col items-center justify-center gap-4 text-center sm:text-start">
         <p>
           Utilizamos cookies para melhorar sua experiência de navegação. Ao
           aceitar, você concorda com nosso uso de cookies.
         </p>
         <div className="flex w-full justify-center gap-4 sm:justify-start">
-          <Button variant="secondary" onClick={declineConsent}>
+          <Button variant="secondary" onClick={() => setCookieConsent(false)}>
             Recusar
           </Button>
-          <Button onClick={acceptConsent}>Aceitar</Button>
+          <Button onClick={() => setCookieConsent(true)}>Aceitar</Button>
         </div>
       </div>
     </div>

@@ -9,6 +9,7 @@ import './globals.css'
 import { CookieConsent } from '@/components/analytics/cookie-consent'
 import Analytics from '@/components/analytics/analytics'
 import { Suspense } from 'react'
+import GoogleAnalytics from '@/components/analytics/analytics'
 
 const plusJakartaSans = Plus_Jakarta_Sans({ subsets: ['latin'] })
 
@@ -25,6 +26,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="pt-BR">
+      <Suspense>
+        <GoogleAnalytics GA_MEASUREMENT_ID="G-JC1MXC2ZWY" />
+      </Suspense>
       <body
         className={cn('relative h-full antialiased', plusJakartaSans.className)}
       >
@@ -39,10 +43,6 @@ export default function RootLayout({
             <Footer />
             <ScrollToTopButton />
             <CookieConsent />
-
-            <Suspense>
-              <Analytics />
-            </Suspense>
           </main>
         </ThemeProvider>
       </body>
