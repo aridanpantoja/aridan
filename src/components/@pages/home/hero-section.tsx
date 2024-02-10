@@ -12,8 +12,8 @@ export function HeroSection() {
         <div className="flex max-w-lg flex-col items-center gap-3 py-20 text-center sm:gap-4 lg:items-start lg:py-0 lg:text-start">
           <div className="block h-56 w-56 overflow-hidden rounded-full bg-primary lg:hidden">
             <Image
-              src="/images/john-doe.png"
-              alt="teste"
+              src="/images/profile.webp"
+              alt="Imagem de perfil de Aridan Pantoja"
               width={512}
               height={512}
               className="w-full"
@@ -44,8 +44,8 @@ export function HeroSection() {
         </div>
         <div className="hidden max-w-lg flex-1 justify-center lg:flex">
           <Image
-            src="/images/john-doe.png"
-            alt="teste"
+            src="/images/profile.webp"
+            alt="Imagem de perfil de Aridan Pantoja"
             width={512}
             height={512}
             className="w-full"
