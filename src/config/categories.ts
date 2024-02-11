@@ -7,4 +7,8 @@ export const categoriesConfig = [
     name: 'Freelancers',
     category: 'freelancers',
   },
+  {
+    name: 'Pessoais',
+    category: 'personal',
+  },
 ]

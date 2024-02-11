@@ -20,7 +20,7 @@ export default async function ProjetosPage() {
               className="mb-4 w-full text-start"
             />
 
-            <ProjectGrid category={category.category} columns="three" />
+            <ProjectGrid category={category.category} />
           </div>
         ))}
       </Section>
