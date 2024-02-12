@@ -1,7 +1,13 @@
 import { HeadSection } from '@/components/@pages/head-section'
 import { Section } from '@/components/section/section'
 import { SectionHeader } from '@/components/section/section-header'
-import { Skeleton } from '@/components/ui/skeleton'
+import { Metadata } from 'next'
+
+export const metadata: Metadata = {
+  title: 'Blog',
+  description:
+    'Aqui, você pode explorar ideias, dicas e insights sobre uma variedade de tópicos relacionados com desenvolvimento.',
+}
 
 export default function Blog() {
   return (

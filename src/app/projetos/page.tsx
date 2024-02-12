@@ -3,6 +3,13 @@ import { ProjectGrid } from '@/components/project/project-grid'
 import { Section } from '@/components/section/section'
 import { SectionHeader } from '@/components/section/section-header'
 import { categoriesConfig } from '@/config/categories'
+import { Metadata } from 'next'
+
+export const metadata: Metadata = {
+  title: 'Projetos',
+  description:
+    'Aqui, você pode explorar alguns dos trabalhos que desenvolvi. Sinta-se à vontade para navegar e descobrir mais sobre meus projetos.',
+}
 
 export default async function ProjetosPage() {
   return (

@@ -12,7 +12,6 @@ export const fetchHygraph = async (query: string) => {
     },
   }
 
-  // await new Promise((resolve) => setTimeout(resolve, 4000))
   const response = await fetch(process.env.HYGRAPH_URL as string, options)
   const { data } = await response.json()
 

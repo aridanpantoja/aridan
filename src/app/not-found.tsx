@@ -2,7 +2,6 @@ import { HeadSection } from '@/components/@pages/head-section'
 import { ProjectGrid } from '@/components/project/project-grid'
 import { Section } from '@/components/section/section'
 import { SectionHeader } from '@/components/section/section-header'
-import React from 'react'
 
 export default function NotFoundPage() {
   return (

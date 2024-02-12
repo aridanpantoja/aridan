@@ -12,7 +12,10 @@ import './globals.css'
 const plusJakartaSans = Plus_Jakarta_Sans({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
-  title: 'Aridan | Front-Developer',
+  title: {
+    default: 'Aridan Dev',
+    template: '%s | Aridan Dev',
+  },
   description:
     'Apaixonado por tecnologia, estudante de Engenharia de Computação e Redes de Computadores.',
 }
