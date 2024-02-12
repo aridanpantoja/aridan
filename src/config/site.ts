@@ -1,10 +1,11 @@
 import { TbBrandGithub, TbBrandLinkedin } from 'react-icons/tb'
 
 export const siteConfig = {
-  name: 'aridan',
+  name: 'Aridan Dev',
   url: 'https://aridan.dev',
-  ogImage: 'https://ui.shadcn.com/og.jpg',
-  description: 'Bem-vindo ao meu portifólio!',
+  ogImage: 'https://aridan.dev/metadata/og.jpg',
+  description:
+    'Apaixonado por tecnologia, estudante de Engenharia de Computação e Redes de Computadores.',
   socials: [
     {
       name: 'Github',
