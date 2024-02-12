@@ -4,11 +4,11 @@ import Footer from '@/components/footer'
 import NavBar from '@/components/navbar/nav-bar'
 import { ScrollToTopButton } from '@/components/scroll-to-top'
 import { ThemeProvider } from '@/components/theme/theme-provider'
+import { siteConfig } from '@/config/site'
 import { cn } from '@/lib/utils'
 import type { Metadata } from 'next'
 import { Plus_Jakarta_Sans } from 'next/font/google'
 import './globals.css'
-import { siteConfig } from '@/config/site'
 
 const plusJakartaSans = Plus_Jakarta_Sans({ subsets: ['latin'] })
 
@@ -53,8 +53,11 @@ export const metadata: Metadata = {
     ],
   },
   icons: {
-    icon: '/metadata/favicon.ico',
+    icon: '/favicon.ico',
+    shortcut: '/favicon-16x16.png',
+    apple: '/apple-touch-icon.png',
   },
+  manifest: `${siteConfig.url}/site.webmanifest`,
 }
 
 export default function RootLayout({
