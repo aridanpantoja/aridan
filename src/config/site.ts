@@ -15,7 +15,7 @@ export const siteConfig = {
     {
       name: 'Linkedin',
       Icon: TbBrandLinkedin,
-      url: 'https://www.linkedin.com/in/aridan-pantoja/',
+      url: 'https://www.linkedin.com/in/aridanpantoja/',
     },
   ],
 }
