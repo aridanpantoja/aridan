@@ -1,5 +1,3 @@
-import Analytics from '@/components/analytics/analytics'
-import { CookieConsent } from '@/components/analytics/cookie-consent'
 import Footer from '@/components/footer'
 import NavBar from '@/components/navbar/nav-bar'
 import { ScrollToTopButton } from '@/components/scroll-to-top'
@@ -80,8 +78,6 @@ export default function RootLayout({
             <div className="flex-1 flex-grow">{children}</div>
             <Footer />
             <ScrollToTopButton />
-            <CookieConsent />
-            <Analytics />
           </main>
         </ThemeProvider>
       </body>
