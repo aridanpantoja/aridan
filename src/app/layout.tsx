@@ -3,7 +3,9 @@ import { cn } from '@/lib/utils'
 import { Plus_Jakarta_Sans as plusJakartaSans } from 'next/font/google'
 import './globals.css'
 
-const plusJakarta = plusJakartaSans({ subsets: ['latin'] })
+const plusJakarta = plusJakartaSans({
+  subsets: ['latin'],
+})
 
 export default function RootLayout({
   children,
@@ -11,16 +13,16 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="pt-br">
-      <body
-        className={cn('relative h-full antialiased', plusJakarta.className)}
-      >
-        <main className="relative flex min-h-screen justify-center">
-          <div className="grid w-full max-w-screen-xl grid-cols-1 space-y-16 px-4 py-20 lg:grid-cols-3 lg:gap-8 lg:space-y-0">
+    <html lang="pt-br" className={plusJakarta.className}>
+      <body className={cn('relative h-full antialiased')}>
+        <div className="relative flex min-h-screen w-full justify-center">
+          <div className="w-full max-w-screen-lg">
             <Navbar />
-            <main className="col-span-2">{children}</main>
+            <main className="flex flex-col gap-16 px-2.5 py-20">
+              {children}
+            </main>
           </div>
-        </main>
+        </div>
       </body>
     </html>
   )
