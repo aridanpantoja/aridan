@@ -1,62 +1,9 @@
-import Footer from '@/components/footer'
-import NavBar from '@/components/navbar/nav-bar'
-import { ScrollToTopButton } from '@/components/scroll-to-top'
-import { ThemeProvider } from '@/components/theme/theme-provider'
-import { siteConfig } from '@/config/site'
+import { Navbar } from '@/components/navbar'
 import { cn } from '@/lib/utils'
-import type { Metadata } from 'next'
-import { Plus_Jakarta_Sans } from 'next/font/google'
+import { Plus_Jakarta_Sans as plusJakartaSans } from 'next/font/google'
 import './globals.css'
 
-const plusJakartaSans = Plus_Jakarta_Sans({ subsets: ['latin'] })
-
-export const metadata: Metadata = {
-  title: {
-    default: siteConfig.name,
-    template: `%s | ${siteConfig.name}`,
-  },
-  description: siteConfig.description,
-  metadataBase: new URL(siteConfig.url),
-  keywords: [
-    'Aridan',
-    'Front-end Developer',
-    'React',
-    'Next.js',
-    'Typescript',
-    'Javascript',
-    'HTML',
-    'CSS',
-  ],
-  authors: [
-    {
-      name: 'Aridan',
-      url: 'https://aridan.dev',
-    },
-  ],
-  creator: 'Aridan',
-  openGraph: {
-    type: 'website',
-    locale: 'pt_BR',
-    url: siteConfig.url,
-    title: siteConfig.name,
-    description: siteConfig.description,
-    siteName: siteConfig.name,
-    images: [
-      {
-        url: siteConfig.ogImage,
-        width: 1200,
-        height: 630,
-        alt: siteConfig.name,
-      },
-    ],
-  },
-  icons: {
-    icon: '/favicon.ico',
-    shortcut: '/favicon-16x16.png',
-    apple: '/apple-touch-icon.png',
-  },
-  manifest: `${siteConfig.url}/site.webmanifest`,
-}
+const plusJakarta = plusJakartaSans({ subsets: ['latin'] })
 
 export default function RootLayout({
   children,
@@ -64,22 +11,16 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="pt-BR">
+    <html lang="pt-br">
       <body
-        className={cn('relative h-full antialiased', plusJakartaSans.className)}
+        className={cn('relative h-full antialiased', plusJakarta.className)}
       >
-        <ThemeProvider
-          attribute="class"
-          defaultTheme="dark"
-          disableTransitionOnChange
-        >
-          <main className="relative flex min-h-screen flex-col">
-            <NavBar />
-            <div className="flex-1 flex-grow">{children}</div>
-            <Footer />
-            <ScrollToTopButton />
-          </main>
-        </ThemeProvider>
+        <main className="relative flex min-h-screen justify-center">
+          <div className="grid w-full max-w-screen-xl grid-cols-1 space-y-16 px-4 py-20 lg:grid-cols-3 lg:gap-8 lg:space-y-0">
+            <Navbar />
+            <main className="col-span-2">{children}</main>
+          </div>
+        </main>
       </body>
     </html>
   )
