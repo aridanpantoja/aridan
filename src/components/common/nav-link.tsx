@@ -1,6 +1,14 @@
-import { NavLinkProps } from '@/interfaces/nav-link'
 import { cn } from '@/lib/utils'
 import Link from 'next/link'
+import { IconType } from 'react-icons/lib'
+
+type NavLinkProps = {
+  href: string
+  name: string
+  Icon: IconType
+  asSocial?: boolean
+  className?: string
+}
 
 export function NavLink({
   href,
@@ -13,7 +21,7 @@ export function NavLink({
     <Link
       href={href}
       className={cn(
-        'border-b-1 flex w-fit items-center gap-2 border-b border-b-transparent pb-1 font-semibold text-primary transition-all hover:border-b-primary',
+        'border-b-1 flex w-fit items-center gap-2 border-b border-b-transparent pb-1 font-semibold text-primary  hover:border-b-primary',
         className,
       )}
       target={asSocial ? '_blank' : ''}

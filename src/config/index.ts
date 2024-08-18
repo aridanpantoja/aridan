@@ -1,16 +1,12 @@
-import { PageProps } from '@/interfaces/page'
-import { FaMedium } from 'react-icons/fa6'
-import { LuInstagram, LuLinkedin, LuPalette, LuPaperclip } from 'react-icons/lu'
+import { FaGithub, FaInstagram, FaLinkedin, FaMedium } from 'react-icons/fa6'
 
-export const PAGES: PageProps[] = [
+export const PAGES = [
   {
     href: '/projetos',
-    Icon: LuPalette,
     name: 'Projetos',
   },
   {
     href: '/curriculo',
-    Icon: LuPaperclip,
     name: 'Currículo',
   },
 ]
@@ -18,12 +14,17 @@ export const PAGES: PageProps[] = [
 export const SOCIALS = [
   {
     href: 'https://www.linkedin.com/in/aridanpantoja/',
-    Icon: LuLinkedin,
+    Icon: FaLinkedin,
+    name: 'aridanpantoja',
+  },
+  {
+    href: 'https://github.com/aridanpantoja/',
+    Icon: FaGithub,
     name: 'aridanpantoja',
   },
   {
     href: 'https://www.instagram.com/aridan.dev/',
-    Icon: LuInstagram,
+    Icon: FaInstagram,
     name: 'aridan.dev',
   },
   {
