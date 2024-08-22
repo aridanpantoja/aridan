@@ -3,7 +3,7 @@ import { FaGithub, FaInstagram, FaLinkedin, FaMedium } from 'react-icons/fa6'
 export const siteConfig = {
   name: 'Aridan Pantoja',
   url: 'https://aridan.dev',
-  ogImage: 'https://aridan.dev/og.jpg',
+  ogImage: 'https://aridan.dev/og.png',
   description:
     'Explore os meus projetos, habilidades, formações e veja como transformo ideias em soluções criativas e funcionais.',
 }
