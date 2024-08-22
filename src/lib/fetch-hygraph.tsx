@@ -8,7 +8,9 @@ export async function fetchHygraph(query: string) {
       },
       method: 'POST',
       body: JSON.stringify({ query }),
-      cache: 'no-store',
+      next: {
+        revalidate: 60,
+      },
     })
 
     const data = await response.json()

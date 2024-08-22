@@ -6,8 +6,9 @@ const AvatarVariants = cva('rounded-xl shadow-2xl border', {
   variants: {
     size: {
       default: 'size-16 min-w-16',
-      large: 'size-20 min-w-20',
-      small: 'size-12 min-w-12',
+      sm: 'size-12 min-w-12',
+      lg: 'size-20 min-w-20',
+      xl: 'size-40 min-w-40',
     },
   },
   defaultVariants: {

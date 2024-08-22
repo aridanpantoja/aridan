@@ -1,12 +1,16 @@
 import { ProjectCard } from '@/components/common/project-card'
 import { Section } from '@/components/common/section'
-import { fetchHygraph } from '@/lib/fetch-hygraph'
-import { getProjectsQuery } from '@/querys'
-import { ProjectCardProps } from '@/types/projects'
+import { getProjects } from '@/querys/get-projects'
+import { Metadata } from 'next'
+
+export const metadata: Metadata = {
+  title: 'Projetos',
+  description:
+    'Explore alguns dos trabalhos que fiz. Sinta-se à vontade para navegar e descobrir mais sobre meus projetos.',
+}
 
 export default async function Projects() {
-  const response = await fetchHygraph(getProjectsQuery)
-  const projects: ProjectCardProps[] = response.projects
+  const projects = await getProjects()
 
   return (
     <>
@@ -28,6 +32,7 @@ export default async function Projects() {
               imgAlt={project.title}
               title={project.title}
               slug={project.slug}
+              description={project.shortDescription}
             />
           ))}
         </div>

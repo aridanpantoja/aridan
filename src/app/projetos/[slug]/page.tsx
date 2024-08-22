@@ -1,17 +1,14 @@
 import { Section } from '@/components/common/section'
+import { Alert, AlertTitle } from '@/components/shadcn-ui/alert'
 import { buttonVariants } from '@/components/shadcn-ui/button'
-import { fetchHygraph } from '@/lib/fetch-hygraph'
-import { getProjectBySlug } from '@/querys'
-import { ProjectProps } from '@/types'
+import { imageCard, siteConfig } from '@/config'
+import { getProjectBySlug } from '@/querys/get-project-by-slug'
+import { Metadata } from 'next'
 import Image from 'next/image'
 import Link from 'next/link'
 import { notFound } from 'next/navigation'
 import { FaGithub, FaGlobe } from 'react-icons/fa6'
-
-const imageCard = {
-  width: 1280,
-  height: 720,
-}
+import { TbAlertTriangleFilled } from 'react-icons/tb'
 
 type ProjectPageProps = {
   params: {
@@ -22,8 +19,7 @@ type ProjectPageProps = {
 export default async function ProjectPage({
   params: { slug },
 }: ProjectPageProps) {
-  const response = await fetchHygraph(getProjectBySlug(slug))
-  const project: ProjectProps = response.project
+  const project = await getProjectBySlug(slug)
 
   if (!project) {
     return notFound()
@@ -36,28 +32,36 @@ export default async function ProjectPage({
 
         <p className="text-lg">{project.shortDescription}</p>
 
-        <div className="flex flex-wrap justify-center gap-4">
-          {project.github && (
-            <Link
-              href={project.github}
-              target="_blank"
-              className={buttonVariants()}
-            >
-              <FaGithub className="mr-1" />
-              Repositório
-            </Link>
-          )}
-          {project.deploy && (
-            <Link
-              href={project.deploy}
-              target="_blank"
-              className={buttonVariants()}
-            >
-              <FaGlobe className="mr-1" />
-              Ver projeto
-            </Link>
-          )}
-        </div>
+        {(project.deploy || project.github) && (
+          <div className="flex flex-wrap justify-center gap-4">
+            {project.deploy && (
+              <Link
+                href={project.deploy}
+                target="_blank"
+                className={buttonVariants()}
+              >
+                <FaGlobe className="mr-1" />
+                Ver projeto
+              </Link>
+            )}
+            {project.github && (
+              <Link
+                href={project.github}
+                target="_blank"
+                className={buttonVariants()}
+              >
+                <FaGithub className="mr-1" />
+                Repositório
+              </Link>
+            )}
+          </div>
+        )}
+        {project.maintenance && (
+          <Alert variant="maintenance">
+            <TbAlertTriangleFilled className="size-5" />
+            <AlertTitle>Em desenvolvimento</AlertTitle>
+          </Alert>
+        )}
       </Section>
 
       <Section>
@@ -87,4 +91,29 @@ export default async function ProjectPage({
       </Section>
     </>
   )
+}
+
+export async function generateMetadata({
+  params: { slug },
+}: ProjectPageProps): Promise<Metadata> {
+  const project = await getProjectBySlug(slug)
+
+  if (!project) {
+    return notFound()
+  }
+
+  const title = project.title
+  const description = project.shortDescription
+  const imageUrl = project.image.url
+
+  return {
+    title,
+    description,
+    openGraph: {
+      title,
+      description,
+      images: [{ url: imageUrl }],
+    },
+    metadataBase: new URL(`${siteConfig.url}/projetos/${project.slug}`),
+  }
 }

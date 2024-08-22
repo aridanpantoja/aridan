@@ -17,7 +17,25 @@ export type ProjectProps = {
   github: string | null
   deploy: string | null
   longDescription: string
+  maintenance: boolean
   skill: {
     text: string
   }[]
+}
+
+export type StackProps = {
+  text: string
+}[]
+
+export type ExperienceProps = {
+  title: string
+  startDate: string
+  endDate?: string
+  local: string
+  description: string
+  image: {
+    url: string
+  }
+  stack: StackProps
+  category: 'education' | 'work'
 }

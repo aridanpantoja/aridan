@@ -8,16 +8,23 @@ const imageCard = {
 
 type ProjectCardProps = {
   title: string
+  description: string
   imgUrl: string
   imgAlt: string
   slug: string
 }
 
-export function ProjectCard({ title, imgAlt, imgUrl, slug }: ProjectCardProps) {
+export function ProjectCard({
+  title,
+  imgAlt,
+  imgUrl,
+  slug,
+  description,
+}: ProjectCardProps) {
   return (
     <Link
       href={`/projetos/${slug}`}
-      className="group relative overflow-hidden rounded-2xl border shadow-2xl"
+      className="group relative overflow-hidden rounded-2xl border bg-background shadow-2xl hover:bg-primary/20"
     >
       <div className="overflow-hidden">
         <Image
@@ -29,12 +36,9 @@ export function ProjectCard({ title, imgAlt, imgUrl, slug }: ProjectCardProps) {
         />
       </div>
 
-      <div className="w-full space-y-2 border-t bg-background p-4 transition-all group-hover:bg-primary/20">
+      <div className="w-full space-y-2 border-t  p-4 transition-all">
         <h3 className="text-xl font-bold">{title}</h3>
-        <p>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-          eiusmod tempor incididunt ut labore et dolore magna.
-        </p>
+        <p>{description}</p>
       </div>
     </Link>
   )

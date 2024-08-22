@@ -49,7 +49,6 @@
   }
 }
 
-
 @layer base {
   * {
     @apply border-border;
@@ -58,13 +57,13 @@
     @apply bg-background text-foreground;
   }
   h1 {
-    @apply text-4xl font-semibold
+    @apply text-4xl font-semibold;
   }
   h2 {
-    @apply text-xl font-bold
+    @apply text-xl font-bold;
   }
   strong {
-    @apply text-primary
+    @apply text-primary;
   }
 }
 
