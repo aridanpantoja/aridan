@@ -1,36 +1,75 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+Aqui está um README atualizado para o seu repositório:
 
-## Getting Started
+---
 
-First, run the development server:
+# Aridan.dev - Portfólio Pessoal
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+Este repositório contém o código-fonte do meu portfólio pessoal, disponível em [aridan.dev](https://aridan.dev). O portfólio foi desenvolvido utilizando **React**, **Next.js**, **Typescript**, **Shadcn/UI** e **Tailwind CSS** para criar uma interface moderna e responsiva. O gerenciamento de conteúdo é realizado por meio do **Hygraph** (GraphCMS), que utiliza **GraphQL** para facilitar a integração e manipulação dos dados.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## 🚀 Tecnologias Utilizadas
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+- **Next.js**: Framework React que possibilita renderização do lado do servidor (SSR) e geração de sites estáticos.
+- **React**: Biblioteca JavaScript para construção de interfaces de usuário.
+- **Typescript**: Superset do JavaScript que adiciona tipagem estática ao código.
+- **Shadcn/UI**: Biblioteca de componentes estilizados e acessíveis para React.
+- **Tailwind CSS**: Framework de CSS utilitário para estilização rápida e responsiva.
+- **Hygraph (GraphCMS)**: CMS baseado em GraphQL para gerenciamento de conteúdo.
+- **GraphQL**: Linguagem de consulta utilizada para comunicação com o CMS.
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+## 📦 Clonando o Projeto
 
-## Learn More
+### Passos
 
-To learn more about Next.js, take a look at the following resources:
+1. Clone o repositório:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+   ```bash
+   git clone https://github.com/aridanpantoja/aridan.git
+   cd aridan
+   ```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+2. Instale as dependências:
 
-## Deploy on Vercel
+   ```bash
+   yarn install
+   ```
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+   ou
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+   ```bash
+   npm install
+   ```
+
+3. Configure as variáveis de ambiente:
+
+   Crie um arquivo `.env.local` na raiz do projeto e adicione suas chaves de API e outras variáveis necessárias. Veja o exemplo abaixo:
+
+   ```bash
+   HYGRAPH_URL=your-hygraph-endpoint
+   HYGRAPH_TOKEN=your-hygraph-token
+   ```
+
+4. Execute o projeto em modo de desenvolvimento:
+
+   ```bash
+   yarn dev
+   ```
+
+   ou
+
+   ```bash
+   npm run dev
+   ```
+
+5. Acesse o projeto no navegador:
+
+   ```
+   http://localhost:3000
+   ```
+
+## 🌐 Deploy
+
+O site está atualmente hospedado em [aridan.dev](https://aridan.dev). O deploy é realizado automaticamente via [Vercel](https://vercel.com/) a cada novo commit na branch `main`.
+
+## 📧 Contato
+
+Se você tiver alguma dúvida, dica ou sugestão, pode me contatar pelo [Instagram](https://www.instagram.com/aridan.dev/) ou pelo [LinkedIn](https://www.linkedin.com/in/aridanpantoja/).
