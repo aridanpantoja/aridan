@@ -1,7 +1,3 @@
-Aqui está um README atualizado para o seu repositório:
-
----
-
 # Aridan.dev - Portfólio Pessoal
 
 Este repositório contém o código-fonte do meu portfólio pessoal, disponível em [aridan.dev](https://aridan.dev). O portfólio foi desenvolvido utilizando **React**, **Next.js**, **Typescript**, **Shadcn/UI** e **Tailwind CSS** para criar uma interface moderna e responsiva. O gerenciamento de conteúdo é realizado por meio do **Hygraph** (GraphCMS), que utiliza **GraphQL** para facilitar a integração e manipulação dos dados.
