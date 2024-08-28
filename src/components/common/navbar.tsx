@@ -9,7 +9,7 @@ export function Navbar() {
       <nav>
         <ul className="space-x-4">
           {PAGES.map((page, i) => (
-            <li key={i}>
+            <li className="inline-block" key={i}>
               <Link
                 href={page.href}
                 className="text-sm font-medium hover:underline"
