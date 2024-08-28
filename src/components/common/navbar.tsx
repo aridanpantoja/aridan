@@ -9,13 +9,14 @@ export function Navbar() {
       <nav>
         <ul className="space-x-4">
           {PAGES.map((page, i) => (
-            <Link
-              key={i}
-              href={page.href}
-              className="text-sm font-medium hover:underline"
-            >
-              {page.name}
-            </Link>
+            <li key={i}>
+              <Link
+                href={page.href}
+                className="text-sm font-medium hover:underline"
+              >
+                {page.name}
+              </Link>
+            </li>
           ))}
         </ul>
       </nav>
