@@ -47,6 +47,7 @@ export default async function Home() {
               className={buttonVariants({
                 size: 'icon',
               })}
+              aria-label={social.ariaLabel}
             >
               <social.Icon className="size-5" />
             </Link>

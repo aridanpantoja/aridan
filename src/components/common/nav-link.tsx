@@ -21,7 +21,7 @@ export function NavLink({
     <Link
       href={href}
       className={cn(
-        'border-b-1 flex w-fit items-center gap-2 border-b border-b-transparent pb-1 font-semibold text-primary  hover:border-b-primary',
+        'border-b-1 flex w-fit items-center gap-2 border-b border-b-transparent pb-1 font-semibold text-primary hover:border-b-primary dark:text-purple-400 dark:hover:border-b-purple-400',
         className,
       )}
       target={asSocial ? '_blank' : ''}
