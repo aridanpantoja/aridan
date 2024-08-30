@@ -1,8 +1,8 @@
 import { HttpLink } from '@apollo/client'
 import {
-    ApolloClient,
-    InMemoryCache,
-    registerApolloClient,
+  ApolloClient,
+  InMemoryCache,
+  registerApolloClient,
 } from '@apollo/experimental-nextjs-app-support'
 
 export const { getClient, query, PreloadQuery } = registerApolloClient(() => {
@@ -13,6 +13,6 @@ export const { getClient, query, PreloadQuery } = registerApolloClient(() => {
       headers: {
         Authorization: `Bearer ${process.env.HYGRAPH_TOKEN as string}`,
       },
-    })
+    }),
   })
 })
