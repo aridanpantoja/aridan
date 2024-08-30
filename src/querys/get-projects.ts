@@ -1,7 +1,8 @@
-import { fetchHygraph } from '@/lib/fetch-hygraph'
+import { query } from '@/lib/apollo-client'
 import { ProjectCardProps } from '@/types'
+import { gql } from '@apollo/client'
 
-const projectsQuery = `
+const projectsQuery = gql`
   query GetProjects {
     projects {
       title
@@ -15,7 +16,7 @@ const projectsQuery = `
 `
 
 export async function getProjects() {
-  const response = await fetchHygraph(projectsQuery)
-  const projects: ProjectCardProps[] = response.projects
+  const { data } = await query({ query: projectsQuery })
+  const projects: ProjectCardProps[] = data.projects
   return projects
 }

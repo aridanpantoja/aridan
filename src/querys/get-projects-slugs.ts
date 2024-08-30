@@ -1,15 +1,16 @@
-import { fetchHygraph } from '@/lib/fetch-hygraph'
+import { query } from '@/lib/apollo-client'
+import { gql } from '@apollo/client'
 
-const projectsSlugsQuery = `
-query MyQuery {
-  projects {
-    slug
+const projectsSlugsQuery = gql`
+  query MyQuery {
+    projects {
+      slug
+    }
   }
-}
 `
 
 export async function getProjectsSlugs() {
-  const response = await fetchHygraph(projectsSlugsQuery)
-  const slugs: { slug: string }[] = response.projects
+  const { data } = await query({ query: projectsSlugsQuery })
+  const slugs: { slug: string }[] = data.projects
   return slugs
 }

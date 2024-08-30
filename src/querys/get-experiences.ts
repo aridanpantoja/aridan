@@ -1,7 +1,8 @@
-import { fetchHygraph } from '@/lib/fetch-hygraph'
+import { query } from '@/lib/apollo-client'
 import { ExperienceProps } from '@/types'
+import { gql } from '@apollo/client'
 
-const experiencesQuery = `
+const experiencesQuery = gql`
   query GetExperiences {
     experiences(orderBy: endDate_DESC) {
       category
@@ -21,7 +22,7 @@ const experiencesQuery = `
 `
 
 export async function getExperiences() {
-  const response = await fetchHygraph(experiencesQuery)
-  const experiences: ExperienceProps[] = response.experiences
+  const { data } = await query({ query: experiencesQuery })
+  const experiences: ExperienceProps[] = data.experiences
   return experiences
 }

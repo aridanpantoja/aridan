@@ -1,7 +1,8 @@
-import { fetchHygraph } from '@/lib/fetch-hygraph'
+import { query } from '@/lib/apollo-client'
 import { ProjectProps } from '@/types'
+import { gql } from '@apollo/client'
 
-const projectBySlugQuery = (slug: string) => `
+const projectBySlugQuery = (slug: string) => gql`
   query GetProjectBySlug {
     project(where: {slug: "${slug}"}) {
       title
@@ -22,7 +23,7 @@ const projectBySlugQuery = (slug: string) => `
 `
 
 export async function getProjectBySlug(slug: string) {
-  const response = await fetchHygraph(projectBySlugQuery(slug))
-  const project: ProjectProps = response.project
+  const { data } = await query({ query: projectBySlugQuery(slug) })
+  const project: ProjectProps = data.project
   return project
 }

@@ -1,62 +1,63 @@
-import { fetchHygraph } from '@/lib/fetch-hygraph'
+import { query } from '@/lib/apollo-client'
 import { ExperienceProps, ProjectCardProps, StackProps } from '@/types'
+import { gql } from '@apollo/client'
 
-const homeQuery = `
-query GetHome {
-  home(where: {slug: "home"}) {
-    description
-    projects(first: 5) {
-      slug
-      title
-      shortDescription
-      image {
-        url
-      }
-    }
-    stack {
-      text
-    }
-    currentPosition {
-      title
-      startDate
-      endDate
-      local
+const homeQuery = gql`
+  query GetHome {
+    home(where: { slug: "home" }) {
       description
-      image {
-        url
+      projects(first: 5) {
+        slug
+        title
+        shortDescription
+        image {
+          url
+        }
       }
       stack {
         text
       }
-    }
-    academicEducation {
-      title
-      startDate
-      endDate
-      local
-      description
-      image {
-        url
+      currentPosition {
+        title
+        startDate
+        endDate
+        local
+        description
+        image {
+          url
+        }
+        stack {
+          text
+        }
       }
-      stack {
-        text
+      academicEducation {
+        title
+        startDate
+        endDate
+        local
+        description
+        image {
+          url
+        }
+        stack {
+          text
+        }
       }
-    }
-    supplementaryEducation {
-      title
-      startDate
-      endDate
-      local
-      description
-      image {
-        url
-      }
-      stack {
-        text
+      supplementaryEducation {
+        title
+        startDate
+        endDate
+        local
+        description
+        image {
+          url
+        }
+        stack {
+          text
+        }
       }
     }
   }
-}
 `
 
 type HomeProps = {
@@ -69,7 +70,7 @@ type HomeProps = {
 }
 
 export async function getHome() {
-  const response = await fetchHygraph(homeQuery)
-  const home: HomeProps = response.home
+  const { data } = await query({ query: homeQuery })
+  const home: HomeProps = data.home
   return home
 }
