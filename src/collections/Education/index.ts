@@ -1,34 +1,34 @@
-import type { CollectionConfig } from 'payload'
+import type { CollectionConfig } from "payload";
 
 export const Education: CollectionConfig = {
-  slug: 'education',
+  slug: "education",
   fields: [
     {
-      name: 'name',
-      type: 'text',
+      name: "name",
+      type: "text",
       required: true,
       unique: true,
     },
     {
-      name: 'description',
-      type: 'richText',
+      name: "description",
+      type: "richText",
       required: true,
     },
     {
-      name: 'startDate',
-      type: 'date',
+      name: "startDate",
+      type: "date",
       required: true,
     },
     {
-      name: 'endDate',
-      type: 'date',
+      name: "endDate",
+      type: "date",
       required: false,
     },
     {
-      name: 'organization',
-      type: 'relationship',
+      name: "organization",
+      type: "relationship",
       required: true,
-      relationTo: 'organizations',
+      relationTo: "organizations",
     },
   ],
-}
+};
