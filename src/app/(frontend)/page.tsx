@@ -1,25 +1,58 @@
-import configPromise from "@payload-config";
-import { getPayload } from "payload";
-import { WidthWrapper } from "@/components/shared/width-wrapper";
-import { HeroSection } from "./_components/hero-section";
+import HeroSection from "@/components/shadcn-space/blocks/hero-01/hero";
+import BrandSlider from "@/components/shadcn-space/blocks/hero-01/brand-slider";
+import Bentogrid from "@/components/shadcn-space/blocks/bento-grid-01/bentogrid";
+import type { AvatarList } from "@/components/shadcn-space/blocks/hero-01/hero";
+import type { BrandList } from "@/components/shadcn-space/blocks/hero-01/brand-slider";
 
-export default async function HomePage() {
-  const payload = await getPayload({ config: configPromise });
+const avatarList: AvatarList[] = [
+  { image: "https://images.shadcnspace.com/assets/profiles/user-1.jpg" },
+  { image: "https://images.shadcnspace.com/assets/profiles/user-2.jpg" },
+  { image: "https://images.shadcnspace.com/assets/profiles/user-3.jpg" },
+  { image: "https://images.shadcnspace.com/assets/profiles/user-5.jpg" },
+];
 
-  const { hero } = await payload.findGlobal({
-    slug: "home",
-    depth: 1,
-  });
+const brandList: BrandList[] = [
+  {
+    image: "https://images.shadcnspace.com/assets/brand-logo/logoipsum-1.svg",
+    lightimg:
+      "https://images.shadcnspace.com/assets/brand-logo/logoipsum-light-1.svg",
+    name: "Brand 1",
+  },
+  {
+    image: "https://images.shadcnspace.com/assets/brand-logo/logoipsum-2.svg",
+    lightimg:
+      "https://images.shadcnspace.com/assets/brand-logo/logoipsum-light-2.svg",
+    name: "Brand 2",
+  },
+  {
+    image: "https://images.shadcnspace.com/assets/brand-logo/logoipsum-3.svg",
+    lightimg:
+      "https://images.shadcnspace.com/assets/brand-logo/logoipsum-light-3.svg",
+    name: "Brand 3",
+  },
+  {
+    image: "https://images.shadcnspace.com/assets/brand-logo/logoipsum-4.svg",
+    lightimg:
+      "https://images.shadcnspace.com/assets/brand-logo/logoipsum-light-4.svg",
+    name: "Brand 4",
+  },
+  {
+    image: "https://images.shadcnspace.com/assets/brand-logo/logoipsum-5.svg",
+    lightimg:
+      "https://images.shadcnspace.com/assets/brand-logo/logoipsum-light-5.svg",
+    name: "Brand 5",
+  },
+];
 
+export default function HomePage() {
   return (
     <>
-      <HeroSection {...hero} />
+      <div className="relative overflow-hidden">
+        <HeroSection avatarList={avatarList} />
+        <BrandSlider brandList={brandList} />
+      </div>
 
-      <section className="bg-background border-y-2 border-foreground">
-        <WidthWrapper>
-          <h1>Hello, World</h1>
-        </WidthWrapper>
-      </section>
+      <Bentogrid />
     </>
   );
 }

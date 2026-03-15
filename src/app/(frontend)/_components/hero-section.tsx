@@ -18,10 +18,13 @@ export function HeroSection({
   const media = typeof image === "object" ? image : null;
 
   return (
-    <section data-testid="hero-section" className="relative overflow-hidden py-24">
+    <section
+      data-testid="hero-section"
+      className="relative overflow-hidden py-24"
+    >
       <div
         aria-hidden="true"
-        className="pointer-events-none absolute inset-0 bg-[radial-gradient(var(--color-foreground)_1px,transparent_1px)] [background-size:24px_24px] opacity-[0.03]"
+        className="pointer-events-none absolute inset-0 bg-[radial-gradient(var(--color-foreground)_1px,transparent_1px)] bg-size-[24px_24px] opacity-[0.03]"
       />
       <div
         aria-hidden="true"

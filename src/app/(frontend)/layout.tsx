@@ -2,8 +2,9 @@ import "@/assets/styles/globals.css";
 import type { Metadata } from "next";
 import { Space_Grotesk } from "next/font/google";
 import type React from "react";
-import { cn } from "@/lib/utils";
 import { Navbar } from "@/components/layout/navbar";
+import Footer from "@/components/shadcn-space/blocks/footer-01/footer";
+import { cn } from "@/lib/utils";
 
 const spaceGrotesk = Space_Grotesk({ subsets: ["latin"] });
 
@@ -23,8 +24,8 @@ export default async function RootLayout(props: { children: React.ReactNode }) {
       <body className="h-full bg-background">
         <div className="flex flex-col h-full">
           <Navbar />
-          <main className="flex-1 bg-red-500">{children}</main>
-          <div>Footer</div>
+          <main className="flex-1 pt-20">{children}</main>
+          <Footer />
         </div>
       </body>
     </html>
