@@ -1,8 +1,6 @@
 import configPromise from "@payload-config";
-import Link from "next/link";
 import { getPayload } from "payload";
-import { CMSLink } from "../shared/cms-link";
-import { WidthWrapper } from "../shared/width-wrapper";
+import { NavbarClient } from "./navbar-client";
 
 export async function Navbar() {
   const payload = await getPayload({ config: configPromise });
@@ -12,27 +10,10 @@ export async function Navbar() {
     depth: 1,
   });
 
-  return (
-    <header className="sticky top-0 z-20 border-b-2 border-foreground bg-background">
-      <WidthWrapper>
-        <div className="flex justify-between py-4">
-          <Link href="/" className="text-xl font-bold">
-            Aridan
-          </Link>
+  const navData = (navItems ?? []).map((item) => ({
+    name: item.label,
+    href: item.link,
+  }));
 
-          <nav className="flex gap-3 items-center">
-            {navItems?.map((item) => (
-              <CMSLink
-                key={item.id}
-                href={item.link}
-                className="text-sm font-medium"
-              >
-                {item.label}
-              </CMSLink>
-            ))}
-          </nav>
-        </div>
-      </WidthWrapper>
-    </header>
-  );
+  return <NavbarClient navData={navData} />;
 }
